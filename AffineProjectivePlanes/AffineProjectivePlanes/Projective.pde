@@ -16,8 +16,9 @@ class ProjectivePlane
   int pointsOnLine;                       //Number of points on a line
   int numPoints;                          //Number of lines
   int numLines;                           //Number of lines, distinguished from numPts for the sake of comprehension
+  float temp = 0;
   
-  PVector[] points = new PVector [numPoints];                       //Stores an array of PVectors with x,y coords of each
+  PVector[] points = new PVector [numPoints];//Stores an array of PVectors with x,y coords of each
   int  [][] lines;                        //Stores a 2d array of ints. Rows corrospond to lines and columns corrospond to combinations of points
   
   ProjectivePlane(int temporder)
@@ -63,7 +64,8 @@ class ProjectivePlane
     {
       for(int j=0;j<pointsOnLine-1;j++)
       {
-        stroke((j/lines.length));
+        temp = i;
+        stroke((temp/numLines)*255,85,100);
         strokeWeight(lineThickness);
         line(points[lines[i][j]].x,points[lines[i][j]].y,points[lines[i][(j+1)%pointsOnLine]].x,points[lines[i][(j+1)%pointsOnLine]].y);
       }
@@ -74,7 +76,7 @@ class ProjectivePlane
       stroke(255);
       strokeWeight(pointRadius);
       point(points[i].x,points[i].y);
-      text(i,points[i].x,points[i].y);
+      //text(i,points[i].x,points[i].y);
     }
     overPoint();
   }

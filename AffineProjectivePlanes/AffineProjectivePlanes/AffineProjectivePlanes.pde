@@ -23,7 +23,7 @@ void setup()
 
 void draw()
 {
-  background(120,105,200);
+  background(85,200,120);
   drawGUI();
   if(affineType)
   {
@@ -38,7 +38,7 @@ void draw()
 
 //=====TO DO=====
 //==
-//== NOTE: RANDOMIZE DOES NOT MAKE A CORRECT AFFINE PLANE
+//== NOTE: RANDOMIZE DOES NOT MAKE A CORRECT PROJECTIVE OR AFFINE PLANE
 //== Proper randomization of lines (based off of fano plane geomatry?)
 //==
 //== MAKE advance() work

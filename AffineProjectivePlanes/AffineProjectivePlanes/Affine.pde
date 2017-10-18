@@ -16,6 +16,8 @@ class AffinePlane
   int numPoints;                          //Number of lines
   int numLines;                           //Number of lines, distinguished from numPts for the sake of comprehension
   
+  float temp;
+  
   PVector[] points;                       //Stores an array of PVectors with x,y coords of each
   int  [][] lines;                        //Stores a 2d array of ints. Rows corrospond to lines and columns corrospond to combinations of points
   
@@ -43,7 +45,8 @@ class AffinePlane
     {
       for(int j=0;j<pointsOnLine-1;j++)
       {
-        stroke((i/numLines)*255,0,0);
+        temp=i;
+        stroke((temp/numLines)*255,75,75);
         strokeWeight(lineThickness);
         line(points[lines[i][j]].x,points[lines[i][j]].y,points[lines[i][j+1]].x,points[lines[i][j+1]].y);
       }
@@ -54,7 +57,7 @@ class AffinePlane
       stroke(255);
       strokeWeight(pointRadius);
       point(points[i].x,points[i].y);
-      text(i,points[i].x,points[i].y);
+      //text(i,points[i].x,points[i].y);
     }
     //==OVER POINT INDICATOR==
     overPoint();

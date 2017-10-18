@@ -18,6 +18,12 @@ void drawGUI()
     fill(255);  rect(132,height-30,157,20);
     fill(0);    text("Generate random projective",137,height-15);
   }
+  
+  textSize(11.5);
+  text("Press 'a' to advance lines. (alpha)",10,25);
+  text("Press 'p' to randomize points.",10,45);
+  text("Press 'l' to randomize lines.",10,65);
+  if(projectiveType){text("Press 'f' to generate a Fano plane.",10,85);}
 }
 
 void mousePressed()
