@@ -1,4 +1,10 @@
-int order = 2;
+int order = 3;
+
+int tempMovingPoint = 0;
+
+float pointRadius = 5;
+float pointSenseRadius = 10;
+float lineThickness = 2;
 
 boolean affineType = true;
 boolean projectiveType = false;
@@ -9,6 +15,9 @@ AffinePlane affine = new AffinePlane (order);
 void setup()
 {
   size(600,600);
+  ellipseMode(CENTER);
+  projective.initializeValues();
+  affine.initializeValues();
 }
 
 void draw()
@@ -17,12 +26,18 @@ void draw()
   drawGUI();
   if(affineType)
   {
-    affine.updateAffine();
     affine.drawAffine();
   }
+  
   if(projectiveType)
   {
-    projective.updateProjective();
     projective.drawProjective();
   }
 }
+
+//=====TO DO=====
+//==
+//== NOTE: RANDOMIZE DOES NOT MAKE A CORRECT AFFINE PLANE
+//== Proper randomization of lines (based off of fano plane geomatry?)
+//==
+//== MAKE createFanoPlane()
