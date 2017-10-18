@@ -35,9 +35,9 @@ void mousePressed()
 //====Generate random affine/projective===
 //========================================
   if(affineType && mouseX>132 && mouseX<289 && mouseY>(height-30) && mouseY<(height-10))
-  {randomAffine();     println("Generating random affine plane.");}
+  {randomAffine(true,true);     println("Generating random affine plane.");}
   if(projectiveType && mouseX>132 && mouseX<289 && mouseY>(height-30) && mouseY<(height-10))
-  {randomProjective(); println("Generating random projective plane.");}
+  {randomProjective(true,true); println("Generating random projective plane.");}
 }
 
 void mouseDragged()
@@ -58,6 +58,19 @@ void mouseDragged()
 
 void keyPressed()
 {
+  //==CURRENT CONTROLS==
+  //==
+  //==F - CREATE FANO PROJECTIVE PLANE
+  //==
+  //==P - RANDOMIZE POINTS ONLY
+  //==  (will be correct projective if pressed F first)
+  //==
+  //==L - RANDOMIZE LINES ONLY
+  //==
+  //==A - ADVANCE LINES BY ONE
+  //==  (creates another fano plane if already correct)
+  
+  
   if(keyCode == 70)
   {
     if(order == 2 && projectiveType)
@@ -67,6 +80,38 @@ void keyPressed()
       createFanoPlane();
     }else{
       println("Cannot create Fano plane, you must be in a projective plane and of order 2!");
+    }
+  }
+  if(keyCode == 80)
+  {
+    if(affineType)
+    {randomAffine(true,false);}
+    if(projectiveType)
+    {randomProjective(true,false);}
+  }
+  if(keyCode == 76)
+  {
+    if(affineType)
+    {randomAffine(false,true);}
+    if(projectiveType)
+    {randomProjective(false,true);}
+  }
+  if(keyCode == 65)
+  {
+    if(affineType)
+    {
+      for(int i=0;i<affine.lines.length;i++)
+      {
+        affine.lines [i] = affine.lines [(i-1)%affine.lines.length];
+      }
+    }
+    if(projectiveType)
+    {
+      //for(int[] i : projective.lines)
+      for(int i=1;i<projective.lines.length;i++)
+      {
+        projective.lines[i] = projective.lines[(i+1)%projective.lines.length];
+      }
     }
   }
 }

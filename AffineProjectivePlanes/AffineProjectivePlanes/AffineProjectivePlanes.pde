@@ -16,8 +16,8 @@ void setup()
 {
   size(600,600);
   ellipseMode(CENTER);
-  projective.initializeValues();  projective.randomize(50.0,width-50.0,50.0,height-50.0);
-  affine.initializeValues();      affine.randomize(50.0,width-50.0,50.0,height-50.0);
+  projective.initializeValues();  projective.randomize(50.0,width-50.0,50.0,height-50.0,true,true);
+  affine.initializeValues();      affine.randomize(50.0,width-50.0,50.0,height-50.0,true,true);
   
 }
 
@@ -41,4 +41,6 @@ void draw()
 //== NOTE: RANDOMIZE DOES NOT MAKE A CORRECT AFFINE PLANE
 //== Proper randomization of lines (based off of fano plane geomatry?)
 //==
-//== MAKE createFanoPlane()
+//== MAKE advance() work
+//==
+//==

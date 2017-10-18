@@ -40,9 +40,9 @@ class ProjectivePlane
   {
     points[0].set(width/2,height/2);
     points[1].set((width/2),(height/2)-100);
-    points[2].set((width/2)+100,(height/2)+100);
-    points[3].set((width/2)-100,(height/2)+100);
-    points[4].set((width/2),(height/2)+100);
+    points[2].set((width/2)+100,(height/2)+75);
+    points[3].set((width/2)-100,(height/2)+75);
+    points[4].set((width/2),(height/2)+75);
     points[5].set((width/2)-50,(height/2)-50);
     points[6].set((width/2)+50,(height/2)-50);
     
@@ -114,12 +114,18 @@ class ProjectivePlane
 //========================================
 //=======RANDOMIZE POINTS AND LINES=======
 //========================================
-  void randomize(float minX, float maxX, float minY, float maxY)
+  void randomize(float minX, float maxX, float minY, float maxY,boolean doPoints, boolean doLines)
   {
-    for(int i=0;i<numPoints;i++)
-    {points [i].set(int(random(minX,maxX)),int(random(minY,maxY)));}
+    if(doPoints)
+    {
+      for(int i=0;i<numPoints;i++)
+      {points [i].set(int(random(minX,maxX)),int(random(minY,maxY)));}
+    }
+    if(doLines)
+    {
     for(int i=0;i<numLines;i++){
       for(int j=0;j<pointsOnLine;j++)
         {lines [i][j] = int(random(0,numPoints));}}
+    }
   }
 }

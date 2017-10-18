@@ -102,12 +102,18 @@ class AffinePlane
 //========================================
 //=======RANDOMIZE POINTS AND LINES=======
 //========================================
-  void randomize(float minX, float maxX, float minY, float maxY)
+  void randomize(float minX, float maxX, float minY, float maxY,boolean doPoints, boolean doLines)
   {
-    for(int i=0;i<numPoints;i++)
-    {points [i].set(int(random(minX,maxX)),int(random(minY,maxY)));}
-    for(int i=0;i<numLines;i++){
-      for(int j=0;j<pointsOnLine;j++)
-        {lines [i][j] = int(random(0,numPoints));}}
+    if(doPoints)
+    {
+      for(int i=0;i<numPoints;i++)
+      {points [i].set(int(random(minX,maxX)),int(random(minY,maxY)));}
+    }
+    if(doLines)
+    {
+      for(int i=0;i<numLines;i++){
+        for(int j=0;j<pointsOnLine;j++)
+          {lines [i][j] = int(random(0,numPoints));}}
+    }
   }
 }
