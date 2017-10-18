@@ -1,4 +1,4 @@
-int order = 3;
+int order = 2;
 
 int tempMovingPoint = 0;
 
@@ -6,8 +6,8 @@ float pointRadius = 5;
 float pointSenseRadius = 10;
 float lineThickness = 2;
 
-boolean affineType = true;
-boolean projectiveType = false;
+boolean affineType = false;
+boolean projectiveType = true;
 
 ProjectivePlane projective = new ProjectivePlane (order);
 AffinePlane affine = new AffinePlane (order);
@@ -16,8 +16,9 @@ void setup()
 {
   size(600,600);
   ellipseMode(CENTER);
-  projective.initializeValues();
-  affine.initializeValues();
+  projective.initializeValues();  projective.randomize(50.0,width-50.0,50.0,height-50.0);
+  affine.initializeValues();      affine.randomize(50.0,width-50.0,50.0,height-50.0);
+  
 }
 
 void draw()

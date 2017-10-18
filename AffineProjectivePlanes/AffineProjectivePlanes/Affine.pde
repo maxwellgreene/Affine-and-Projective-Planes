@@ -30,11 +30,6 @@ class AffinePlane
     points = new PVector [numPoints];
   }
   
-  void createFanoPlane()
-  {
-    
-  }
-  
   void updateAffine(float mousex,float mousey,int pointNum)
   {
     points[pointNum].set(mousex,mousey);
@@ -76,7 +71,14 @@ class AffinePlane
       }
     }
   }
-  
+  void checkAbove()
+  {
+    for(int i=0;i<points.length;i++)
+      {
+        if(mouseX>(points[i].x-pointSenseRadius) && mouseX<(points[i].x+pointSenseRadius) && mouseY>(points[i].y-pointSenseRadius) && mouseY<(points[i].y+pointSenseRadius))
+        {updateAffine(mouseX,mouseY,i);}
+      }
+  }
 //========================================
 //====Clears value of points and lines====
 //========================================

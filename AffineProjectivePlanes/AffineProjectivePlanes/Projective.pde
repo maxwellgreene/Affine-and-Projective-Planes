@@ -36,6 +36,26 @@ class ProjectivePlane
     points[pointNum].set(mousex,mousey);
   }
   
+  void createFanoPlane()
+  {
+    points[0].set(width/2,height/2);
+    points[1].set((width/2),(height/2)-100);
+    points[2].set((width/2)+100,(height/2)+100);
+    points[3].set((width/2)-100,(height/2)+100);
+    points[4].set((width/2),(height/2)+100);
+    points[5].set((width/2)-50,(height/2)-50);
+    points[6].set((width/2)+50,(height/2)-50);
+    
+    lines[0][0] = 1;  lines [0][1] = 5;  lines [0][2] = 3;
+    lines[1][0] = 1;  lines [1][1] = 0;  lines [1][2] = 4;
+    lines[2][0] = 1;  lines [2][1] = 6;  lines [2][2] = 2;
+    lines[3][0] = 5;  lines [3][1] = 6;  lines [3][2] = 4;
+    lines[4][0] = 5;  lines [4][1] = 0;  lines [4][2] = 2;
+    lines[5][0] = 3;  lines [5][1] = 0;  lines [5][2] = 6;
+    lines[6][0] = 3;  lines [6][1] = 4;  lines [6][2] = 2;
+    
+  }
+  
   void drawProjective()
   {
     //==LINES==
@@ -45,7 +65,7 @@ class ProjectivePlane
       {
         stroke((j/lines.length));
         strokeWeight(lineThickness);
-        line(points[lines[i][j]].x,points[lines[i][j]].y,points[lines[i][j+1]].x,points[lines[i][j+1]].y);
+        line(points[lines[i][j]].x,points[lines[i][j]].y,points[lines[i][(j+1)%pointsOnLine]].x,points[lines[i][(j+1)%pointsOnLine]].y);
       }
     }
     //==POINTS==

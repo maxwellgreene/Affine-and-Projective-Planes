@@ -1,7 +1,7 @@
 void createFanoPlane()
 {
-  affine.clearValues();
-  affine.createFanoPlane();
+  projective.clearValues();
+  projective.createFanoPlane();
 }
 
 void randomAffine()

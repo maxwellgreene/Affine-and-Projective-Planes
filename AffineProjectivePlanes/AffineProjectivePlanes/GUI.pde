@@ -40,42 +40,33 @@ void mousePressed()
   {randomProjective(); println("Generating random projective plane.");}
 }
 
-void mouseClicked()
-{
-  if(affineType)
-    {
-      for(int i=0;i<affine.points.length;i++)
-      {
-        if(mouseX>(affine.points[i].x-pointSenseRadius) && mouseX<(affine.points[i].x+pointSenseRadius) && mouseY>(affine.points[i].y-pointSenseRadius) && mouseY<(affine.points[i].y+pointSenseRadius))
-        {tempMovingPoint = i;}
-      }
-    }
-  if(projectiveType)
-  {
-    for(int i=0;i<affine.points.length;i++)
-      {
-        if(mouseX>(projective.points[i].x-pointSenseRadius) && mouseX<(projective.points[i].x+pointSenseRadius) && mouseY>(projective.points[i].y-pointSenseRadius) && mouseY<(projective.points[i].y+pointSenseRadius))
-        {tempMovingPoint = i;}
-      }
-  }
-}
-
 void mouseDragged()
 {
   if(affineType)
     {
-      for(int i=0;i<affine.points.length;i++)
-      {
-        if(mouseX>(affine.points[i].x-pointSenseRadius) && mouseX<(affine.points[i].x+pointSenseRadius) && mouseY>(affine.points[i].y-pointSenseRadius) && mouseY<(affine.points[i].y+pointSenseRadius))
-        {affine.updateAffine(mouseX,mouseY,i);}
-      }
+      affine.checkAbove();
     }
   if(projectiveType)
   {
-    for(int i=0;i<affine.points.length;i++)
+    for(int i=0;i<projective.points.length;i++)
       {
         if(mouseX>(projective.points[i].x-pointSenseRadius) && mouseX<(projective.points[i].x+pointSenseRadius) && mouseY>(projective.points[i].y-pointSenseRadius) && mouseY<(projective.points[i].y+pointSenseRadius))
         {projective.updateProjective(mouseX,mouseY,i);}
       }
+  }
+}
+
+void keyPressed()
+{
+  if(keyCode == 70)
+  {
+    if(order == 2 && projectiveType)
+    {
+      println("pressed f");
+      println("Creating Fano Plane!");
+      createFanoPlane();
+    }else{
+      println("Cannot create Fano plane, you must be in a projective plane and of order 2!");
+    }
   }
 }
