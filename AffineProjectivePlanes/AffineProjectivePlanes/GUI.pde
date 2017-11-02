@@ -66,15 +66,14 @@ void keyPressed()
 {
   //==CURRENT CONTROLS==
   //==
-  //==F - CREATE FANO PROJECTIVE PLANE
+  //== F - CREATE FANO PROJECTIVE PLANE
   //==
-  //==P - RANDOMIZE POINTS ONLY
+  //== P - RANDOMIZE POINTS ONLY
   //==  (will be correct projective if pressed F first)
   //==
-  //==L - RANDOMIZE LINES ONLY
+  //== L - RANDOMIZE LINES ONLY
   //==
-  //==A - ADVANCE LINES BY ONE
-  //==  (creates another fano plane if already correct)
+  //== A - CREATE PLANE ALGEBRAICALLY
   
   
   if(keyCode == 70)
@@ -105,19 +104,10 @@ void keyPressed()
   if(keyCode == 65)
   {
     if(affineType)
-    {
-      for(int i=0;i<affine.lines.length;i++)
-      {
-        affine.lines [i] = affine.lines [(i-1)%affine.lines.length];
-      }
-    }
+    {}
     if(projectiveType)
     {
-      //for(int[] i : projective.lines)
-      for(int i=1;i<projective.lines.length;i++)
-      {
-        projective.lines[i] = projective.lines[(i+1)%projective.lines.length];
-      }
+      projective.createProjectiveAlgebraically();
     }
   }
 }

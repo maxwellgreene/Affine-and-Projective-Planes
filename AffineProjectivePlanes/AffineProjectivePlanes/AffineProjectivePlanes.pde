@@ -1,4 +1,4 @@
-int order = 2;
+int order = 3;
 
 int tempMovingPoint = 0;
 
@@ -14,7 +14,7 @@ AffinePlane affine = new AffinePlane (order);
 
 void setup()
 {
-  size(600,600);
+  size(1000,1000);
   ellipseMode(CENTER);
   projective.initializeValues();  projective.randomize(50.0,width-50.0,50.0,height-50.0,true,true);
   affine.initializeValues();      affine.randomize(50.0,width-50.0,50.0,height-50.0,true,true);
@@ -43,4 +43,4 @@ void draw()
 //==
 //== MAKE advance() work
 //==
-//==
+//== ORGANIZE

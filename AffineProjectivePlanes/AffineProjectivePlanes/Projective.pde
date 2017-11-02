@@ -37,6 +37,11 @@ class ProjectivePlane
     points[pointNum].set(mousex,mousey);
   }
   
+  void createProjectiveAlgebraically()
+  {
+    
+  }
+  
   void createFanoPlane()
   {
     points[0].set(width/2,height/2);
@@ -92,7 +97,6 @@ class ProjectivePlane
       }
     }
   }
-  
 //========================================
 //====Clears value of points and lines====
 //========================================
@@ -112,7 +116,7 @@ class ProjectivePlane
   {
     println("Initializing projective values.");
     for(int i=0;i<numPoints;i++){points [i] = new PVector (0,0);}
-  }  
+  }
 //========================================
 //=======RANDOMIZE POINTS AND LINES=======
 //========================================
